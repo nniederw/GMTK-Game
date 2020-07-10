@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class BurnableSprite : MonoBehaviour
 {
-    public bool Burning;
-    [SerializeField] private double BurnTime;
+    public bool Burning = false;
+    [SerializeField] private double BurnTime = 60;
     private double TimeTillBurned;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         TimeTillBurned = BurnTime;
