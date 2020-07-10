@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class WaterCarry : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool Water = false;
 
     // Update is called once per frame
     void Update()
