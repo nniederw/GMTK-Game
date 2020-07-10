@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GetWater : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool Water = false;
+    [SerializeField]GameObject Player;
+
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject == Player)
+        {
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
