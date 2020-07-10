@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class CustomTile : Tile
 {
     [SerializeField] private List<Sprite> Sprites;
+
     void test()
     {
 
