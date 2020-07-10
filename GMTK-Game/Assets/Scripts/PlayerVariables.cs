@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterCarry : MonoBehaviour
+public class PlayerVariables : MonoBehaviour
 {
 
     bool Water = false;
