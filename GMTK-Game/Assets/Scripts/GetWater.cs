@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GetWater : MonoBehaviour
 {
+    public double test;
     public bool Water = false;
-    [SerializeField]GameObject Player;
+    [SerializeField] GameObject Player;
 
     private void OnCollisionEnter(Collision collision)
     {
