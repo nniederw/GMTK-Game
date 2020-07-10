@@ -8,6 +8,7 @@ bin/
 Temp/
 Library/
 Logs/
+ProjectSettings/ProjectVersion.txt
 
 # Visual Studio / MonoDevelop generated
 
