@@ -5,14 +5,17 @@ using UnityEngine;
 public class GetWater : MonoBehaviour
 {
     public double test;
-    public bool Water = false;
+
     [SerializeField] GameObject Player;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject == Player)
         {
-
+            if (Input.GetKey("e"))
+            {
+                Player.GetComponent<PlayerVariables>().Water = true;
+            }
         }
     }
 

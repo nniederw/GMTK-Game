@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerVariables : MonoBehaviour
 {
 
-    bool Water = false;
+    public bool Water = false;
 
     
 }
