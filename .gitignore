@@ -1,0 +1,29 @@
+# Diese Files werden nicht eingechecked
+obj/
+bin/
+.vs/
+#*.dll
+#*.exe
+*.tmp
+Temp/
+Library/
+
+# Visual Studio / MonoDevelop generated
+
+#ExportedObj/
+#*.svd
+#*.userprefs
+#*.pidb
+*.suo
+*.user
+#*.unityproj
+#*.booproj
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
