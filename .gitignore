@@ -8,7 +8,7 @@ bin/
 Temp/
 Library/
 Logs/
-GMTK-Game\ProjectSettings\ProjectVersion.txt
+GMTK-Game/ProjectSettings/ProjectVersion.txt
 
 # Visual Studio / MonoDevelop generated
 
