@@ -10,17 +10,27 @@ public class BurnableSprite : MonoBehaviour
     [SerializeField] private float SpreadRadius = 2;
     private void Start()
     {
-        TimeTillBurned = BurnTime;        
+        TimeTillBurned = BurnTime;
+    }
+    public void function()
+    {
+        Burning = true ;
     }
     public void SpreadFire()
     {
-        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, new Vector2(SpreadRadius, SpreadRadius), 0f);
-        collider2Ds.Foreach(check);
-        void check(Collider2D col)
+        if (Burning)
         {
-            if (col.tag == "BurnableTile")
+            Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, new Vector2(SpreadRadius, SpreadRadius), 0f);
+            Debug.Log(collider2Ds.Length);
+            collider2Ds.Foreach(check);
+            void check(Collider2D col)
             {
-                col.gameObject.GetComponent<BurnableSprite>().Burning = true;
+                
+                if ((col.gameObject.GetComponent<BurnableSprite>() !=null)&&col.gameObject != gameObject)
+                {
+                    col.gameObject.GetComponent<BurnableSprite>().function();
+                    col.gameObject.GetComponent<BurnableSprite>().Burning = true;
+                }
             }
         }
     }

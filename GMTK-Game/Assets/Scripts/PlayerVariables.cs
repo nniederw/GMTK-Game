@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerVariables : MonoBehaviour
 {
-    [SerializeField] GameManager GameManager;
+    [SerializeField] GameManager GameManager = null;
     public bool Water = false;
     public int Counter = 0;
 
@@ -29,10 +29,10 @@ public class PlayerVariables : MonoBehaviour
     {
         if (Input.GetKeyDown("w"))
         {
-            Counter ++;
-            if(Counter == 3)
+            Counter++;
+            if (Counter == 3)
             {
-                GameManager.SpreadFire();
+                GameManager.SpreadFire(1);
                 Counter = 0;
             }
         }
