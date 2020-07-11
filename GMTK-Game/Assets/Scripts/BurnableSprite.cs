@@ -7,14 +7,24 @@ public class BurnableSprite : MonoBehaviour
     public bool Burning = false;
     [SerializeField] private double BurnTime = 60;
     [SerializeField] private double TimeTillBurned;
-
-    void Start()
+    [SerializeField] private float SpreadRadius = 2;
+    private void Start()
     {
-        TimeTillBurned = BurnTime;
+        TimeTillBurned = BurnTime;        
     }
-
-    // Update is called once per frame
-    void Update()
+    public void SpreadFire()
+    {
+        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, new Vector2(SpreadRadius, SpreadRadius), 0f);
+        collider2Ds.Foreach(check);
+        void check(Collider2D col)
+        {
+            if (col.tag == "BurnableTile")
+            {
+                col.gameObject.GetComponent<BurnableSprite>().Burning = true;
+            }
+        }
+    }
+    private void Update()
     {
         if (Burning)
         {

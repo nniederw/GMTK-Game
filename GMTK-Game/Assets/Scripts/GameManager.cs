@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
-    public static void SpreadFire()
+    [SerializeField] private GameObject objs;
+    public void SpreadFire()
     {
+        var s = objs.name;
+        objs.GetComponentsInChildren<BurnableSprite>().Foreach(i=>SpreadFire());
         //todo 
         Debug.Log("Spread Fire");
     }

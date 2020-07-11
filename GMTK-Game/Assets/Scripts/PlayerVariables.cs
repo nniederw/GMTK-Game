@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerVariables : MonoBehaviour
 {
-
+    [SerializeField] GameManager GameManager;
     public bool Water = false;
     public int Counter = 0;
 

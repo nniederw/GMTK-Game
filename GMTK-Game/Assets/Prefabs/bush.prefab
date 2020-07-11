@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4691681943158297402}
   m_Layer: 0
   m_Name: bush
-  m_TagString: Untagged
+  m_TagString: BurnableTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,3 +97,4 @@ MonoBehaviour:
   Burning: 0
   BurnTime: 60
   TimeTillBurned: 0
+  SpreadRadius: 2

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GetWater : MonoBehaviour
 {
-    [SerializeField] PlayerVariables playerVariables;
+    [SerializeField] PlayerVariables playerVariables = null;
     private List<GameObject> gObjects = new List<GameObject>();
     void Update()
     {
