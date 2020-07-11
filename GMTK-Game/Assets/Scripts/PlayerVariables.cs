@@ -30,7 +30,11 @@ public class PlayerVariables : MonoBehaviour
         if (Input.GetKeyDown("w"))
         {
             Counter ++;
-            Debug.Log("de niels isch blöd");
+            if(Counter == 3)
+            {
+                GameManager.SpreadFire();
+                Counter = 0;
+            }
         }
     }
 }
