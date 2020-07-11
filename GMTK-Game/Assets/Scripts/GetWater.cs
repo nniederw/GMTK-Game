@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GetWater : MonoBehaviour
 {
-
-    [SerializeField] GameObject Player;
+    [SerializeField] PlayerVariables playerVariables;
     private List<GameObject> gObjects = new List<GameObject>();
     void Update()
     {
@@ -21,12 +20,12 @@ public class GetWater : MonoBehaviour
     }
     void OnStay(GameObject gameObject)
     {
-        if (gameObject == Player)
+        if (gameObject.tag == "Player")
         {
             if (Input.GetKeyDown("e"))
             {
                 Debug.Log("e");
-                Player.GetComponent<PlayerVariables>().Water = true;
+                playerVariables.Water = true;
             }
         }
     }
