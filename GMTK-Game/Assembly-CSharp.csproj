@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\MnEnumerableExtentsion.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerVariables.cs" />
+     <Compile Include="Assets\Scripts\ShowDuplicateTiles.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity Versions/2019.4.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

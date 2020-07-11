@@ -8,12 +8,18 @@ public class GameManager : MonoBehaviour
     private List<float> timers = new List<float>();
     public void SpreadFire()
     {
-        BurnableObjs.GetComponentsInChildren<BurnableSprite>().Foreach(i => i.SpreadFire());
+        var burningObjs = new List<BurnableSprite>();
+        BurnableObjs.GetComponentsInChildren<BurnableSprite>().Foreach(i=> { if (i.Burning) { burningObjs.Add(i); } });
+        burningObjs.ForEach(i => i.SpreadFire());
     }
-    public void SpreadFire(float delay)
+    /// <summary>
+    /// doesnt work properly todo...
+    /// </summary>
+    /// <param name="delay"></param>
+    /*public void SpreadFire(float delay)
     {
         timers.Add(delay);
-    }
+    }*/
     private void Update()
     {
         float deltaTime = Time.deltaTime;
