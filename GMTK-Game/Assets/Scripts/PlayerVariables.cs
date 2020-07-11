@@ -21,7 +21,7 @@ public class PlayerVariables : MonoBehaviour
     }
     private void Splash()
     {
-        Debug.Log("ciao");
+        Debug.Log("Splash");
         //todo löscht tiles
         Water = false;
     }

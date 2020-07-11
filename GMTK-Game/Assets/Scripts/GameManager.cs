@@ -7,6 +7,6 @@ public class GameManager
     public static void SpreadFire()
     {
         //todo 
-        Debug.Log("this girl is on fire");
+        Debug.Log("Spread Fire");
     }
 }
