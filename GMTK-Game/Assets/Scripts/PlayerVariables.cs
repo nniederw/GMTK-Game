@@ -6,12 +6,14 @@ public class PlayerVariables : MonoBehaviour
 {
 
     public bool Water = false;
+    public int Counter = 0;
 
     private void Update()
     {
+        Burn();
         if (Water)
         {
-            if (Input.GetKey("e"))
+            if (Input.GetKey("r"))
             {
                 Splash();
             }
@@ -23,5 +25,12 @@ public class PlayerVariables : MonoBehaviour
         //todo löscht tiles
         Water = false;
     }
-    
+    private void Burn()
+    {
+        if (Input.GetKeyDown("w"))
+        {
+            Counter ++;
+            Debug.Log("de niels isch blöd");
+        }
+    }
 }
