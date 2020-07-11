@@ -1,0 +1,13 @@
+Textures:
+Well
+Player 	down
+	up
+	right
+	left
+
+Levels:
+Make actual levels
+
+Scripting:
+UI
+Level handler
