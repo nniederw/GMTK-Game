@@ -9,7 +9,7 @@ public class GetWater : MonoBehaviour
     private List<GameObject> gObjects = new List<GameObject>();
     void Update()
     {
-        gObjects.ForEach(OnCollision);
+        gObjects.ForEach(OnStay);
     }
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -19,7 +19,7 @@ public class GetWater : MonoBehaviour
     {
         gObjects.Remove(col.gameObject);
     }
-    void OnCollision(GameObject gameObject)
+    void OnStay(GameObject gameObject)
     {
         if (gameObject == Player)
         {
