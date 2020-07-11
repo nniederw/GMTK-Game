@@ -7,8 +7,8 @@ public class GetWater : MonoBehaviour
 
     [SerializeField] GameObject Player;
 
-    private void OnCollisionStay(Collision collision)
-    {   Debug.Log "hallo";
+    public void OnTriggerStay2D(Collider2D collision)
+    {   Debug.Log("hallo");
         if (collision.gameObject == Player)
         {
             if (Input.GetKey("e"))
