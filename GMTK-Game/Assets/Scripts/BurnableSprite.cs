@@ -6,7 +6,7 @@ public class BurnableSprite : MonoBehaviour
 {
     public bool Burning = false;
     [SerializeField] private double BurnTime = 60;
-    private double TimeTillBurned;
+    [SerializeField] private double TimeTillBurned;
 
     void Start()
     {
