@@ -144,7 +144,7 @@ MonoBehaviour:
   SplashBox: {x: 0, y: 0}
   Water: 0
   Counter: 0
-  MaxCounter: 30
+  MaxCounter: 50
 --- !u!61 &5806272843287640310
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,5 +169,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 1.64}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

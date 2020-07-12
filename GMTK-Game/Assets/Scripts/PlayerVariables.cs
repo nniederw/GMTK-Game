@@ -51,7 +51,7 @@ public class PlayerVariables : MonoBehaviour
         { Counter += 1; }
         if (Counter >= MaxCounter)
         {
-            GameManager.SpreadFire(1);
+            GameManager.SpreadFire(1f);
             Counter -= MaxCounter;
         }
     }

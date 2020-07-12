@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private List<float> timers = new List<float>();
     private float FSpreadsUITimer = 0;
     private float UITime = 1;
-    private bool Won = false;
+    [SerializeField]private bool Won = false;
     public bool Tutorial = false;
     public bool IsPaused = false;
     public void SpreadFire()
@@ -28,10 +28,14 @@ public class GameManager : MonoBehaviour
     }
     public void SpreadFire(float delay)
     {
+        Debug.Log("s");
         timers.Add(delay);
     }
     private void Start()
     {
+
+        timers = new List<float>();
+        timers.Add(5f);
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             Tutorial = true;
@@ -114,10 +118,11 @@ public class GameManager : MonoBehaviour
         UnPause();
     }
     private void UpdateTimer()
-    {
+    {        
         float deltaTime = Time.deltaTime;
         for (int i = 0; i < timers.Count; i++)
         {
+            Debug.Log("timer: "+i+" value: "+timers[i]);
             timers[i] -= deltaTime;
         }
         int count = timers.Count;
