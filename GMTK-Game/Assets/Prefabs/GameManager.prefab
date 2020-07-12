@@ -43,4 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cff00a7edae72444bf071f771a041fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BurnableObjs: {fileID: 0}
+  BurnableObjs: {fileID: 4109862461988939739, guid: 5866d8ddfed424a4f9f93f37bdbb2362,
+    type: 3}
+  FireSpreadsUI: {fileID: 0}
+  WinUI: {fileID: 0}
+  LoseUI: {fileID: 0}
+  LoseScoreText: {fileID: 0}
+  ScoreText: {fileID: 0}
+  Tutorial: 0
+  IsPaused: 0

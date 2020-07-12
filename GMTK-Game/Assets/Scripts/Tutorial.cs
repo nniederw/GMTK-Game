@@ -15,7 +15,6 @@ public class Tutorial : MonoBehaviour
     private List<GameObject> Explanations = new List<GameObject>();
     private List<bool> ExplanationsShown = new List<bool>();
     private float timer = 0;
-    private float timer2 = 0;
     private void LoadExpl(int index)
     {
         GameManager.Pause();
@@ -34,7 +33,6 @@ public class Tutorial : MonoBehaviour
         if (i == 1) { timer = 2f; }
         if (i == 2) { timer = 4f; }
         if (i == 3) { timer = 4f; }
-        if (i == 4) { timer2 = 3f; }
         Explanations[i].SetActive(false);
     }
     private void DeactivateAll()
@@ -71,7 +69,7 @@ public class Tutorial : MonoBehaviour
         }
         if (timer <= 0 && ExplanationsShown[3] && !ExplanationsShown[4])
         {
-            GameManager.SpreadFire(1);
+            GameManager.SpreadFire();
             Invoke("LoadLastExpl", 3);
         }
     }

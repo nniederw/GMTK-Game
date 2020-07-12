@@ -134,10 +134,12 @@ public class GameManager : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene("Menu");
+        UnPause();
     }
     public void LoadNextScene()
     {
         int i = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(i + 1);
+        UnPause();
     }
 }

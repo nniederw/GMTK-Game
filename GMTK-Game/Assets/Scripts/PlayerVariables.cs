@@ -9,7 +9,7 @@ public class PlayerVariables : MonoBehaviour
     private PlayerMovement PlayerMovement;
     public bool Water = false;
     [SerializeField] private int Counter = 0;
-    [SerializeField] private int MaxCounter = 30;
+    [SerializeField] private int MaxCounter = 50;
     private void Start()
     {
         PlayerMovement = gameObject.GetComponent<PlayerMovement>();
