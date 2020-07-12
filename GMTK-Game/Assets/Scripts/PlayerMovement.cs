@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer MySRenderer;
     private Vector2 MovementV2D;
-    public Vector2 ViewDirection = new Vector2(0, 1); //todo implement for water splash
+    public Vector2 ViewDirection = new Vector2(0, 1);
     Vector2 down = Vector2.down; Vector2 up = Vector2.up; Vector2 left = Vector2.left; Vector2 right = Vector2.right;
     private void Start()
     {

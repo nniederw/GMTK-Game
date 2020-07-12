@@ -8,7 +8,8 @@ public class PlayerVariables : MonoBehaviour
     [SerializeField] Vector2 SplashBox = Vector2.zero;
     private PlayerMovement PlayerMovement;
     public bool Water = false;
-    private int Counter = 0;
+    [SerializeField] private int Counter = 0;
+    [SerializeField] private int MaxCounter = 30;
     private void Start()
     {
         PlayerMovement = gameObject.GetComponent<PlayerMovement>();
@@ -41,14 +42,17 @@ public class PlayerVariables : MonoBehaviour
     private void Burn()
     {
         if (Input.GetKeyDown("w"))
+        { Counter += 10; }
+        if (Input.GetKeyDown("d"))
+        { Counter += 5; }
+        if (Input.GetKeyDown("s"))
+        { Counter += 2; }
+        if (Input.GetKeyDown("a"))
+        { Counter += 1; }
+        if (Counter >= MaxCounter)
         {
-            Counter++;
-            if (Counter == 3)
-            {
-                //GameManager.SpreadFire();
-                GameManager.SpreadFire(1);
-                Counter = 0;
-            }
+            GameManager.SpreadFire(1);
+            Counter -= MaxCounter;
         }
     }
 }

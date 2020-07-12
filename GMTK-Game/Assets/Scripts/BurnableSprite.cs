@@ -6,6 +6,7 @@ public class BurnableSprite : MonoBehaviour
 {
     private SpriteRenderer MySRenderer;
     public bool Burning = false;
+    public bool BurntDown = false;
     [SerializeField] private Sprite BurningSprite = null;
     [SerializeField] private Sprite NotBurningSprite = null;
     [SerializeField] private double BurnTime = 60;
@@ -32,23 +33,23 @@ public class BurnableSprite : MonoBehaviour
     }
     private void Update()
     {
-        if (Burning)
+        if (!BurntDown)
         {
-            TimeTillBurned -= Time.deltaTime;
-            if (TimeTillBurned <= 0.0)
+            if (Burning)
             {
-                Burned();
+                TimeTillBurned -= Time.deltaTime;
+                if (TimeTillBurned <= 0.0)
+                {
+                    BurntDown = true;
+                    MySRenderer.enabled = false;
+                }
+                MySRenderer.sprite = BurningSprite;
             }
-            MySRenderer.sprite = BurningSprite;
+            else
+            {
+                TimeTillBurned = BurnTime;
+                MySRenderer.sprite = NotBurningSprite;
+            }
         }
-        else
-        {
-            TimeTillBurned = BurnTime;
-            MySRenderer.sprite = NotBurningSprite;
-        }
-    }
-    private void Burned()
-    {
-        enabled = false;
     }
 }

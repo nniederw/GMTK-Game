@@ -6,15 +6,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject BurnableObjs = null;
+    [SerializeField] private GameObject FireSpreadsUI = null;
+    [SerializeField] private GameObject WinUI = null;
     private List<float> timers = new List<float>();
+    private float FSpreadsUITimer = 0;
+    private float UITime = 1;
     private bool Won = false;
     public void SpreadFire()
     {
+        FSpreadsUITimer = UITime;
         var burningObjs = new List<BurnableSprite>();
         BurnableObjs.GetComponentsInChildren<BurnableSprite>().Foreach(i => { if (i.Burning) { burningObjs.Add(i); } });
         burningObjs.ForEach(i => i.SpreadFire());
     }
-
     public void SpreadFire(float delay)
     {
         timers.Add(delay);
@@ -25,6 +29,19 @@ public class GameManager : MonoBehaviour
         {
             UpdateTimer();
             CheckWinning();
+            UpdateUI();
+        }
+    }
+    private void UpdateUI()
+    {
+        if (FSpreadsUITimer > 0)
+        {
+            FireSpreadsUI.SetActive(true);
+            FSpreadsUITimer -= Time.deltaTime;
+        }
+        else
+        {
+            FireSpreadsUI.SetActive(false);
         }
     }
     private void CheckWinning()
@@ -35,9 +52,15 @@ public class GameManager : MonoBehaviour
     }
     private void Win()
     {
-        //todo
+        double score = 100;
+
+        var burntdown = new List<GameObject>();
+        //GameObject.FindGameObjectsWithTag("BurnableSprite").Foreach(i=> {if (i.GetComponent<BurnableSprite>().bu) })
+
+
+
+            WinUI.SetActive(true);
         Won = true;
-        Debug.Log("You Win !");
     }
     private void UpdateTimer()
     {

@@ -58,11 +58,13 @@
      <Compile Include="Assets\Scripts\BurnableSprite.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GetWater.cs" />
+     <Compile Include="Assets\Scripts\HouseTag.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MnEnumerableExtentsion.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerVariables.cs" />
      <Compile Include="Assets\Scripts\ShowDuplicateTiles.cs" />
+     <Compile Include="Assets\Scripts\Tutorial.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

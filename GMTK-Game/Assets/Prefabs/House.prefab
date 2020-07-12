@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 466980697210492355}
   - component: {fileID: 466980697210492352}
   - component: {fileID: 466980697210492357}
+  - component: {fileID: 1743466014153438403}
   m_Layer: 0
-  m_Name: woodhouse
-  m_TagString: Untagged
+  m_Name: House
+  m_TagString: BurnableSprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 10.24, y: 6.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &466980697210492352
@@ -122,4 +123,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Burning: 0
+  BurntDown: 0
+  BurningSprite: {fileID: 0}
+  NotBurningSprite: {fileID: 0}
   BurnTime: 60
+  TimeTillBurned: 0
+  SpreadRadius: 2
+--- !u!114 &1743466014153438403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466980697210492353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f76b5cc6af252048adc4911bdeaa58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
