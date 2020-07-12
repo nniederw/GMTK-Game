@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -56,7 +57,6 @@ public class GameManager : MonoBehaviour
     }
     private void Win()
     {
-        Debug.Log("Win called");
         double score = 100;
         var burntdown = new List<GameObject>();
         GameObject.FindGameObjectsWithTag("BurnableSprite").Foreach(i => { if (i.GetComponent<BurnableSprite>().BurntDown) { burntdown.Add(i); } });
@@ -93,8 +93,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
     public void ReloadCurScene()
-    {
-
+    {        
+        var i = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(i.name);
+        UnPause();
     }
     private void UpdateTimer()
     {
