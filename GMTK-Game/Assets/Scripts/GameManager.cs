@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private float FSpreadsUITimer = 0;
     private float UITime = 1;
     private bool Won = false;
+    public bool Tutorial = false;
     public void SpreadFire()
     {
         FSpreadsUITimer = UITime;
@@ -26,6 +28,17 @@ public class GameManager : MonoBehaviour
     public void SpreadFire(float delay)
     {
         timers.Add(delay);
+    }
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            Tutorial = true;
+        }
+        else
+        {
+            Tutorial = false;
+        }
     }
     private void Update()
     {
@@ -56,7 +69,6 @@ public class GameManager : MonoBehaviour
     }
     private void Win()
     {
-        Debug.Log("Win called");
         double score = 100;
         var burntdown = new List<GameObject>();
         GameObject.FindGameObjectsWithTag("BurnableSprite").Foreach(i => { if (i.GetComponent<BurnableSprite>().BurntDown) { burntdown.Add(i); } });
@@ -93,8 +105,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
     public void ReloadCurScene()
-    {
-
+    {        
+        var i = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(i.name);
+        UnPause();
     }
     private void UpdateTimer()
     {
