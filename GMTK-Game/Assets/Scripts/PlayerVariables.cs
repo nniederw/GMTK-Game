@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerVariables : MonoBehaviour
 {
     [SerializeField] GameManager GameManager = null;
-    [SerializeField] Vector2 SplashBox;
+    [SerializeField] Vector2 SplashBox = Vector2.zero;
     private PlayerMovement PlayerMovement;
     public bool Water = false;
     private int Counter = 0;

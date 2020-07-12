@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         float deltaTime = Time.deltaTime;
+        Debug.Log(deltaTime);
         timers.ForEach(i => i -= deltaTime);
         int count = timers.Count;
         for (int i = 0; i < count; i++)
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
             int ind = count - i - 1;
             if (timers[ind] <= 0)
             {
+                Debug.Log("Spreadfire");
                 SpreadFire();
                 timers.RemoveAt(ind);
             }
