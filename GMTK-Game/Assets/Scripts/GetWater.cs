@@ -24,7 +24,6 @@ public class GetWater : MonoBehaviour
         {
             if (Input.GetKeyDown("e"))
             {
-                Debug.Log("e");
                 playerVariables.Water = true;
             }
         }
