@@ -37,5 +37,6 @@ public class Tutorial : MonoBehaviour
         Explanations.Add(WaterExpl);
         Explanations.Add(BurningExpl);
         Explanations.Add(FireSpreadingExpl);
+        LoadExpl(0);
     }
 }

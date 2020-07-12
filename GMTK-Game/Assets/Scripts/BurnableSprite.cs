@@ -5,6 +5,7 @@ using UnityEngine;
 public class BurnableSprite : MonoBehaviour
 {
     private SpriteRenderer MySRenderer;
+    private Collider2D MyCollider;
     public bool Burning = false;
     public bool BurntDown = false;
     [SerializeField] private Sprite BurningSprite = null;
@@ -16,6 +17,7 @@ public class BurnableSprite : MonoBehaviour
     {
         TimeTillBurned = BurnTime;
         MySRenderer = gameObject.GetComponent<SpriteRenderer>();
+        MyCollider = gameObject.GetComponent<Collider2D>();
     }
     public void SpreadFire()
     {
@@ -40,9 +42,10 @@ public class BurnableSprite : MonoBehaviour
                 TimeTillBurned -= Time.deltaTime;
                 if (TimeTillBurned <= 0.0)
                 {
-                    BurntDown = true;
                     Burning = false;
+                    BurntDown = true;
                     MySRenderer.enabled = false;
+                    MyCollider.enabled = false;
                 }
                 MySRenderer.sprite = BurningSprite;
             }

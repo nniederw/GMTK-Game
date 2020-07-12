@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
     }
     private void Win()
     {
+        Debug.Log("called");
         double score = 100;
         var burntdown = new List<GameObject>();
         GameObject.FindGameObjectsWithTag("BurnableSprite").Foreach(i => { if (i.GetComponent<BurnableSprite>().BurntDown) { burntdown.Add(i); } });
