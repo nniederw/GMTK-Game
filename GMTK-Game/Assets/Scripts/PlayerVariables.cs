@@ -16,7 +16,7 @@ public class PlayerVariables : MonoBehaviour
     }
     private void Update()
     {
-        if (!GameManager.Tutorial) { Burn()};
+        if (!GameManager.Tutorial) { Burn(); }
         if (Water)
         {
             if (Input.GetKeyDown("r"))

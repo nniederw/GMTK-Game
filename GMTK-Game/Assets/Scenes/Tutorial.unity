@@ -351,7 +351,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1800279121}
-        m_MethodName: Disable
+        m_MethodName: OKButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -50132,7 +50132,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1800279121}
-        m_MethodName: Disable
+        m_MethodName: OKButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -51225,7 +51225,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1800279121}
-        m_MethodName: Disable
+        m_MethodName: OKButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -51355,7 +51355,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1800279121}
-        m_MethodName: Disable
+        m_MethodName: OKButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -55252,7 +55252,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1800279121}
-        m_MethodName: Disable
+        m_MethodName: OKButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -56386,8 +56386,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You can pick up water at the well and splash it in your view direction
-    to extinguish fires.
+  m_text: You can pick up water at the well with [e] and splash it in your view direction
+    with [r] to extinguish fires.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -57131,6 +57131,12 @@ PrefabInstance:
       propertyPath: LookLeft
       value: 
       objectReference: {fileID: 21300000, guid: 83a25cfcfd189e1468c7a9ff53ed8035,
+        type: 3}
+    - target: {fileID: 5806272843287640307, guid: 14c60c3d9581d9d49acefcb301cd4381,
+        type: 3}
+      propertyPath: LookDownWater
+      value: 
+      objectReference: {fileID: 21300000, guid: 156b73563d8d34a47a79f8418f583871,
         type: 3}
     - target: {fileID: 5806272843287640310, guid: 14c60c3d9581d9d49acefcb301cd4381,
         type: 3}

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private float UITime = 1;
     private bool Won = false;
     public bool Tutorial = false;
+    public bool IsPaused = false;
     public void SpreadFire()
     {
         FSpreadsUITimer = UITime;
@@ -98,10 +99,12 @@ public class GameManager : MonoBehaviour
     }
     public void Pause()
     {
+        IsPaused = true;
         Time.timeScale = 0;
     }
     public void UnPause()
     {
+        IsPaused = false;
         Time.timeScale = 1;
     }
     public void ReloadCurScene()

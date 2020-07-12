@@ -60,10 +60,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateSprite()
     {
-        MySRenderer.sprite = ViewDirection == down ? (PlayerVariables.Water ? LookDown : LookDownWater)
+        MySRenderer.sprite = ViewDirection == down ? (PlayerVariables.Water ? LookDownWater : LookDown)
         : ViewDirection == up ? LookUp
-        : ViewDirection == left ? LookLeft
-        : ViewDirection == right ? LookRight
+        : ViewDirection == left ? (PlayerVariables.Water ? LookLeftWater : LookLeft)
+        : ViewDirection == right ? (PlayerVariables.Water ? LookRightWater : LookRight)
         : MnExtentsion.DoThrow<Sprite>();
     }
 }
