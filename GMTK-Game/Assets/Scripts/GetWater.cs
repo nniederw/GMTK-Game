@@ -28,20 +28,4 @@ public class GetWater : MonoBehaviour
             }
         }
     }
-    /*
-    public void OnTriggerStay2D(Collider2D collision)
-    {
-
-        Debug.Log("called");
-        if (collision.gameObject == Player)
-        {
-            Debug.Log("gameobject found");
-            if (Input.GetKey("e"))
-            {
-                Debug.Log("e");
-                Player.GetComponent<PlayerVariables>().Water = true;
-            }
-        }
-    }
-    */
 }

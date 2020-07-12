@@ -6,9 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float MoveSpeed = 5f;
     [SerializeField] private Sprite LookDown = null;
+    [SerializeField] private Sprite LookDownWater = null;
     [SerializeField] private Sprite LookUp = null;
     [SerializeField] private Sprite LookRight = null;
+    [SerializeField] private Sprite LookRightWater = null;
     [SerializeField] private Sprite LookLeft = null;
+    [SerializeField] private Sprite LookLeftWater = null;
+    private PlayerVariables PlayerVariables;
     private Camera MainCam;
     private Rigidbody2D rb;
     private SpriteRenderer MySRenderer;
@@ -20,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         MainCam = Camera.main;
         rb = gameObject.GetComponent<Rigidbody2D>();
         MySRenderer = gameObject.GetComponent<SpriteRenderer>();
+        PlayerVariables = gameObject.GetComponent<PlayerVariables>();
     }
     void Update()
     {
@@ -55,9 +60,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateSprite()
     {
-        if (ViewDirection == down) { MySRenderer.sprite = LookDown; }
-        else if (ViewDirection == up) { MySRenderer.sprite = LookUp; }
-        else if (ViewDirection == left) { MySRenderer.sprite = LookLeft; }
-        else if (ViewDirection == right) { MySRenderer.sprite = LookRight; }
+        MySRenderer.sprite = ViewDirection == down ? (PlayerVariables.Water ? LookDown : LookDownWater)
+        : ViewDirection == up ? LookUp
+        : ViewDirection == left ? LookLeft
+        : ViewDirection == right ? LookRight
+        : MnExtentsion.DoThrow<Sprite>();
     }
 }

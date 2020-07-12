@@ -60,7 +60,7 @@
      <Compile Include="Assets\Scripts\GetWater.cs" />
      <Compile Include="Assets\Scripts\HouseTag.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
-     <Compile Include="Assets\Scripts\MnEnumerableExtentsion.cs" />
+     <Compile Include="Assets\Scripts\MnExtentsion.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerVariables.cs" />
      <Compile Include="Assets\Scripts\ShowDuplicateTiles.cs" />
