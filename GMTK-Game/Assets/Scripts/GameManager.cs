@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private float FSpreadsUITimer = 0;
     private float UITime = 1;
     private bool Won = false;
+    public bool Tutorial = false;
     public void SpreadFire()
     {
         FSpreadsUITimer = UITime;
@@ -27,6 +28,17 @@ public class GameManager : MonoBehaviour
     public void SpreadFire(float delay)
     {
         timers.Add(delay);
+    }
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            Tutorial = true;
+        }
+        else
+        {
+            Tutorial = false;
+        }
     }
     private void Update()
     {
