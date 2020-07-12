@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class GetWater : MonoBehaviour
 {
+<<<<<<< HEAD
     [SerializeField] PlayerVariables playerVariables;
+=======
+    [SerializeField] PlayerVariables playerVariables = null;
+>>>>>>> f5492d87c1902104657671461d045f38ceb5b24c
     private List<GameObject> gObjects = new List<GameObject>();
     void Update()
     {
@@ -24,6 +28,7 @@ public class GetWater : MonoBehaviour
         {
             if (Input.GetKeyDown("e"))
             {
+<<<<<<< HEAD
                 Debug.Log("e");
                 playerVariables.Water = true;
             }
@@ -45,4 +50,10 @@ public class GetWater : MonoBehaviour
         }
     }
     */
+=======
+                playerVariables.Water = true;
+            }
+        }
+    }    
+>>>>>>> f5492d87c1902104657671461d045f38ceb5b24c
 }

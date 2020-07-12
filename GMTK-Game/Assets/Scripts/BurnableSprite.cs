@@ -4,33 +4,52 @@ using UnityEngine;
 
 public class BurnableSprite : MonoBehaviour
 {
+    private SpriteRenderer MySRenderer;
     public bool Burning = false;
+    public bool BurntDown = false;
+    [SerializeField] private Sprite BurningSprite = null;
+    [SerializeField] private Sprite NotBurningSprite = null;
     [SerializeField] private double BurnTime = 60;
     [SerializeField] private double TimeTillBurned;
-
-    void Start()
+    [SerializeField] private float SpreadRadius = 1;
+    private void Start()
     {
         TimeTillBurned = BurnTime;
+        MySRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void SpreadFire()
     {
         if (Burning)
         {
-            TimeTillBurned -= Time.deltaTime;
-            if (TimeTillBurned <= 0.0)
+            Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, MySRenderer.size + new Vector2(SpreadRadius, SpreadRadius), 0f);
+            collider2Ds.Foreach(i =>
             {
-                Burned();
-            }
-        }
-        else
-        {
-            TimeTillBurned = BurnTime;
+                if ((i.gameObject.GetComponent<BurnableSprite>() != null) && i.gameObject != gameObject)
+                {
+                    i.gameObject.GetComponent<BurnableSprite>().Burning = true;
+                }
+            });
         }
     }
-    private void Burned()
+    private void Update()
     {
-        enabled = false;
+        if (!BurntDown)
+        {
+            if (Burning)
+            {
+                TimeTillBurned -= Time.deltaTime;
+                if (TimeTillBurned <= 0.0)
+                {
+                    BurntDown = true;
+                    MySRenderer.enabled = false;
+                }
+                MySRenderer.sprite = BurningSprite;
+            }
+            else
+            {
+                TimeTillBurned = BurnTime;
+                MySRenderer.sprite = NotBurningSprite;
+            }
+        }
     }
 }

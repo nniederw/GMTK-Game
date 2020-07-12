@@ -1,0 +1,13 @@
+Textures:
+Well 		[32x32]
+Player 	down	[16x16]
+	up	[16x16]
+	right	[16x16]
+	left	[16x16]
+
+Levels:
+Make actual levels
+
+Scripting:
+UI
+Level handler
