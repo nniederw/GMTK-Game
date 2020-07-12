@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject BurnableObjs = null;
     [SerializeField] private GameObject FireSpreadsUI = null;
     [SerializeField] private GameObject WinUI = null;
+    [SerializeField] private GameObject LoseUI = null;
+    [SerializeField] private Text LoseScoreText = null;
+    [SerializeField] private Text ScoreText = null;
     private List<float> timers = new List<float>();
     private float FSpreadsUITimer = 0;
     private float UITime = 1;
@@ -52,15 +56,45 @@ public class GameManager : MonoBehaviour
     }
     private void Win()
     {
+        Debug.Log("Win called");
         double score = 100;
-
         var burntdown = new List<GameObject>();
-        //GameObject.FindGameObjectsWithTag("BurnableSprite").Foreach(i=> {if (i.GetComponent<BurnableSprite>().bu) })
+        GameObject.FindGameObjectsWithTag("BurnableSprite").Foreach(i => { if (i.GetComponent<BurnableSprite>().BurntDown) { burntdown.Add(i); } });
+        var BBushes = new List<GameObject>();
+        var BHouses = new List<GameObject>();
+        burntdown.ForEach(i =>
+        {
+            if (i.GetComponent<HouseTag>() != null) { BHouses.Add(i); }
+            else { BBushes.Add(i); }
+        });
+        BBushes.ForEach(i => score -= 10);
+        BHouses.ForEach(i => score -= 40);
 
-
-
+        if (score > 0)
+        {
+            ScoreText.text = "Score: " + score;
             WinUI.SetActive(true);
-        Won = true;
+            Won = true;
+            Pause();
+        }
+        else
+        {
+            LoseScoreText.text = "Score: " + score;
+            LoseUI.SetActive(true);
+            Pause();
+        }
+    }
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
+    public void UnPause()
+    {
+        Time.timeScale = 1;
+    }
+    public void ReloadCurScene()
+    {
+
     }
     private void UpdateTimer()
     {

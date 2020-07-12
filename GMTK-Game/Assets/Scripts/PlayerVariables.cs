@@ -44,7 +44,7 @@ public class PlayerVariables : MonoBehaviour
         if (Input.GetKeyDown("w"))
         { Counter += 10; }
         if (Input.GetKeyDown("d"))
-        { Counter += 5; }
+        { Counter += 4; }
         if (Input.GetKeyDown("s"))
         { Counter += 2; }
         if (Input.GetKeyDown("a"))

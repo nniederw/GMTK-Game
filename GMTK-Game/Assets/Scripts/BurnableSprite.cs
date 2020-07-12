@@ -19,7 +19,7 @@ public class BurnableSprite : MonoBehaviour
     }
     public void SpreadFire()
     {
-        if (Burning)
+        if (Burning && !BurntDown)
         {
             Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, MySRenderer.size + new Vector2(SpreadRadius, SpreadRadius), 0f);
             collider2Ds.Foreach(i =>
@@ -41,6 +41,7 @@ public class BurnableSprite : MonoBehaviour
                 if (TimeTillBurned <= 0.0)
                 {
                     BurntDown = true;
+                    Burning = false;
                     MySRenderer.enabled = false;
                 }
                 MySRenderer.sprite = BurningSprite;
