@@ -71,12 +71,16 @@ public class Tutorial : MonoBehaviour
         }
         if (timer <= 0 && ExplanationsShown[3] && !ExplanationsShown[4])
         {
-            GameManager.SpreadFire();
+            GameManager.SpreadFire(1);
             Invoke("LoadLastExpl", 3);
         }
     }
     private void LoadLastExpl()
     {
         LoadExpl(4);
+    }
+    public void GoBack()
+    {
+        GameManager.LoadMenu();
     }
 }

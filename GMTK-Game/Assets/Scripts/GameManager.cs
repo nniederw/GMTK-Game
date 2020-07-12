@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
     public void ReloadCurScene()
-    {        
+    {
         var i = SceneManager.GetActiveScene();
         SceneManager.LoadScene(i.name);
         UnPause();
@@ -130,5 +130,14 @@ public class GameManager : MonoBehaviour
                 timers.RemoveAt(ind);
             }
         }
+    }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    public void LoadNextScene()
+    {
+        int i = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(i + 1);
     }
 }
