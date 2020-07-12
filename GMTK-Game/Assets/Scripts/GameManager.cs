@@ -33,9 +33,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
         timers = new List<float>();
-        timers.Add(5f);
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             Tutorial = true;
