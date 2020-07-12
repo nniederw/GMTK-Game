@@ -9,7 +9,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] GameObject MovementExpl = null;//wasd stones
     [SerializeField] GameObject WaterExpl = null;//can pick up water on well and splash in view direction
     [SerializeField] GameObject BurningExpl = null;// burnable stuff will burn down in 30 seconds try extinglishing all fires
-    [SerializeField] GameObject FireSpreadingExpl = null;//sometimes the fire will spread but you cant controll that (can you?)
+    [SerializeField] GameObject FireSpreadingExpl = null;//sometimes the fire will spread but you cant controll that can you?
     private List<GameObject> Explanations = new List<GameObject>();
     private void LoadExpl(int index)
     {
