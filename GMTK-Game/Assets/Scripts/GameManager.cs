@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject PauseUI = null;
     [SerializeField] private GameObject BurnableObjs = null;
     [SerializeField] private GameObject FireSpreadsUI = null;
     [SerializeField] private GameObject WinUI = null;
@@ -16,7 +14,10 @@ public class GameManager : MonoBehaviour
     private List<float> timers = new List<float>();
     private float FSpreadsUITimer = 0;
     private float UITime = 1;
-    [SerializeField]private bool Won = false;
+    [SerializeField] private bool Won = false;
+    [SerializeField]
+    private Dictionary<BurnableObject, int> ScoreMinusPoints
+        = new Dictionary<BurnableObject, int>() { { BurnableObject.Bush, 10 }, { BurnableObject.House, 40 } };
     public bool Tutorial = false;
     public bool IsPaused = false;
     public void SpreadFire()
@@ -28,7 +29,6 @@ public class GameManager : MonoBehaviour
     }
     public void SpreadFire(float delay)
     {
-        Debug.Log("s");
         timers.Add(delay);
     }
     private void Start()
@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown("escape"))
+        {
+            if (IsPaused) { UnPause(); }
+            else { PauseGame(); }
+        }
         if (!Won)
         {
             UpdateTimer();
@@ -66,25 +71,19 @@ public class GameManager : MonoBehaviour
     }
     private void CheckWinning()
     {
-        var burningObjs = new List<BurnableSprite>();
-        BurnableObjs.GetComponentsInChildren<BurnableSprite>().Foreach(i => { if (i.Burning) { burningObjs.Add(i); } });
-        if (!burningObjs.Any()) { Win(); }
+        if (BurnableSprite.BurningFinished())
+        {
+            Win();
+        }
     }
     private void Win()
     {
-        double score = 100;
-        var burntdown = new List<GameObject>();
-        GameObject.FindGameObjectsWithTag("BurnableSprite").Foreach(i => { if (i.GetComponent<BurnableSprite>().BurntDown) { burntdown.Add(i); } });
-        var BBushes = new List<GameObject>();
-        var BHouses = new List<GameObject>();
-        burntdown.ForEach(i =>
+        int score = 100;
+        var burntDown = BurnableSprite.BurntObjects;
+        foreach (var keyval in burntDown)
         {
-            if (i.GetComponent<HouseTag>() != null) { BHouses.Add(i); }
-            else { BBushes.Add(i); }
-        });
-        BBushes.ForEach(i => score -= 10);
-        BHouses.ForEach(i => score -= 40);
-
+            score -= ScoreMinusPoints[keyval.Key] * keyval.Value;
+        }
         if (score > 0)
         {
             ScoreText.text = "Score: " + score;
@@ -116,12 +115,10 @@ public class GameManager : MonoBehaviour
         UnPause();
     }
     private void UpdateTimer()
-    {        
-        float deltaTime = Time.deltaTime;
+    {
         for (int i = 0; i < timers.Count; i++)
         {
-            Debug.Log("timer: "+i+" value: "+timers[i]);
-            timers[i] -= deltaTime;
+            timers[i] -= Time.deltaTime;
         }
         int count = timers.Count;
         for (int i = 0; i < count; i++)
@@ -144,5 +141,15 @@ public class GameManager : MonoBehaviour
         int i = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(i + 1);
         UnPause();
+    }
+    public void PauseGame()
+    {
+        Pause();
+        PauseUI.SetActive(true);
+    }
+    public void UnPauseGame()
+    {
+        UnPause();
+        PauseUI.SetActive(false);
     }
 }

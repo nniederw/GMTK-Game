@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class PlayerVariables : MonoBehaviour
 {
     [SerializeField] GameManager GameManager = null;
     [SerializeField] Vector2 SplashBox = Vector2.zero;
+    public event EventHandler<SplashArgs> OnSplash;
     private PlayerMovement PlayerMovement;
     public bool Water = false;
     [SerializeField] private int Counter = 0;
@@ -32,12 +34,14 @@ public class PlayerVariables : MonoBehaviour
         Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(pos, SplashBox, rot);
         collider2Ds.Foreach(i =>
         {
-            if ((i.gameObject.GetComponent<BurnableSprite>() != null))
+            var sprite = i.gameObject.GetComponent<BurnableSprite>();
+            if (sprite != null)
             {
-                i.gameObject.GetComponent<BurnableSprite>().Burning = false;
+                sprite.Burning = false;
             }
         });
         Water = false;
+        OnSplash?.Invoke(this, new SplashArgs(SplashBox, new Vector2(pos.x - transform.position.x,pos.y-transform.position.y), rot));
     }
     private void Burn()
     {
