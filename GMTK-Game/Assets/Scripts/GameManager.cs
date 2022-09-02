@@ -18,8 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Dictionary<BurnableObject, int> ScoreMinusPoints
         = new Dictionary<BurnableObject, int>() { { BurnableObject.Bush, 10 }, { BurnableObject.House, 40 } };
-    public bool Tutorial = false;
-    public bool IsPaused = false;
+    [SerializeField] public bool Tutorial = false;
+    [SerializeField] public bool IsPaused = false;
     public void SpreadFire()
     {
         FSpreadsUITimer = UITime;
@@ -33,15 +33,10 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        Time.timeScale = 1f;
         timers = new List<float>();
-        if (SceneManager.GetActiveScene().name == "Tutorial")
-        {
-            Tutorial = true;
-        }
-        else
-        {
-            Tutorial = false;
-        }
+        Tutorial = SceneManager.GetActiveScene().name == "Tutorial";
+        IsPaused = false;
     }
     private void Update()
     {
@@ -101,19 +96,18 @@ public class GameManager : MonoBehaviour
     public void Pause()
     {
         IsPaused = true;
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
     }
     public void UnPause()
     {
         IsPaused = false;
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
     }
     public void ReloadCurScene()
     {
-        var i = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(i.name);
-        UnPause();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    private static void ResetTimeScale() => Time.timeScale = 1f;
     private void UpdateTimer()
     {
         for (int i = 0; i < timers.Count; i++)
@@ -151,5 +145,10 @@ public class GameManager : MonoBehaviour
     {
         UnPause();
         PauseUI.SetActive(false);
+    }
+    public void Restart()
+    {
+        // UnPauseGame();
+        ReloadCurScene();
     }
 }

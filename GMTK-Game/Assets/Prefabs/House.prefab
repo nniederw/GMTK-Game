@@ -453,7 +453,7 @@ PrefabInstance:
     - target: {fileID: 3299605975288031371, guid: 41c5125436a1d004bb188cd345bb8f45,
         type: 3}
       propertyPath: VelocityModule.x.scalar
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3299605975288031371, guid: 41c5125436a1d004bb188cd345bb8f45,
         type: 3}
@@ -468,7 +468,7 @@ PrefabInstance:
     - target: {fileID: 3299605975288031371, guid: 41c5125436a1d004bb188cd345bb8f45,
         type: 3}
       propertyPath: VelocityModule.x.minScalar
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3299605975288031371, guid: 41c5125436a1d004bb188cd345bb8f45,
         type: 3}
